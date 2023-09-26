@@ -11,17 +11,18 @@ void parseADD(string& line, int lineNum) {
 	istringstream inputString(line);
 	inputString >> mnemonic >> op1 >> op2 >> op3;
 	if (mnemonic == "ADD") {
-		return true;
-	}
-		cout << "-------------------------------------------------------------------------\n";
-		cout << "Instruction: " << lineNum << "\n";
-		cout << "-------------------------------------------------------------------------\n";
-		cout << "Instruction:" << mnemonic << "\n";
-		cout << "Operand #1: " << op1 << "\n";
-		cout << "Operand #2: " << op2 << "\n";
-		cout << "Operand #3: " << op3 << "\n";
+		//return true;
+	//}
+	cout << "-------------------------------------------------------------------------\n";
+	cout << "Instruction: " << lineNum << "\n";
+	cout << "-------------------------------------------------------------------------\n";
+	cout << "Instruction:" << mnemonic << "\n";
+	cout << "Operand #1: " << op1 << "\n";
+	cout << "Operand #2: " << op2 << "\n";
+	cout << "Operand #3: " << op3 << "\n";
 
-		return true;
+	//	return true;
+}
 }
 //LDR instruction loads register with a value from memory.
 void parseLDR(string& line, int lineNum) {
@@ -39,7 +40,7 @@ void parseLDR(string& line, int lineNum) {
 			cout << "Operand #2: " << value << "\n";
 
 
-			return true;
+			//return true;
 		}
 
 	}
@@ -51,17 +52,18 @@ void parseSUB(string& line, int lineNum) {
 	istringstream inputString(line);
 	inputString >> mnemonic >> op1 >> op2 >> op3;
 	if (mnemonic == "SUB") {
-		return true;
-	}
-	cout << "-------------------------------------------------------------------------\n";
-	cout << "Instruction: " << lineNum << "\n";
-	cout << "-------------------------------------------------------------------------\n";
-	cout << "Instruction:" << mnemonic << "\n";
-	cout << "Operand #1: " << op1 << "\n";
-	cout << "Operand #2: " << op2 << "\n";
-	cout << "Operand #3: " << op3 << "\n";
+		//return true;
+	//}
+		cout << "-------------------------------------------------------------------------\n";
+		cout << "Instruction: " << lineNum << "\n";
+		cout << "-------------------------------------------------------------------------\n";
+		cout << "Instruction:" << mnemonic << "\n";
+		cout << "Operand #1: " << op1 << "\n";
+		cout << "Operand #2: " << op2 << "\n";
+		cout << "Operand #3: " << op3 << "\n";
 
-	return true;
+		//return true;
+	}
 }
 
 //MOV instruction copies the value of op2 into Rd
@@ -70,17 +72,18 @@ void parseMOV(string& line, int lineNum) {
 	istringstream inputString(line);
 	inputString >> mnemonic >> op1 >> op2;
 	if (mnemonic == "MOV") {
-		return true;
-	}
-	cout << "-------------------------------------------------------------------------\n";
-	cout << "Instruction: " << lineNum << "\n";
-	cout << "-------------------------------------------------------------------------\n";
-	cout << "Instruction:" << mnemonic << "\n";
-	cout << "Operand #1: " << op1 << "\n";
-	cout << "Operand #2: " << op2 << "\n";
-	
+		//return true;
+	//}
+		cout << "-------------------------------------------------------------------------\n";
+		cout << "Instruction: " << lineNum << "\n";
+		cout << "-------------------------------------------------------------------------\n";
+		cout << "Instruction:" << mnemonic << "\n";
+		cout << "Operand #1: " << op1 << "\n";
+		cout << "Operand #2: " << op2 << "\n";
 
-	return true;
+
+		//return true;
+	}
 }
 //STR stores a register value into memory
 void parseSTR(string& line, int lineNum) {
@@ -88,17 +91,18 @@ void parseSTR(string& line, int lineNum) {
 	istringstream inputString(line);
 	inputString >> mnemonic >> op1 >> op2;
 	if (mnemonic == "STR") {
-		return true;
-	}
-	cout << "-------------------------------------------------------------------------\n";
-	cout << "Instruction: " << lineNum << "\n";
-	cout << "-------------------------------------------------------------------------\n";
-	cout << "Instruction:" << mnemonic << "\n";
-	cout << "Operand #1: " << op1 << "\n";
-	cout << "Operand #2: " << op2 << "\n";
-	
+		//return true;
+	//}
+		cout << "-------------------------------------------------------------------------\n";
+		cout << "Instruction: " << lineNum << "\n";
+		cout << "-------------------------------------------------------------------------\n";
+		cout << "Instruction:" << mnemonic << "\n";
+		cout << "Operand #1: " << op1 << "\n";
+		cout << "Operand #2: " << op2 << "\n";
 
-	return true;
+
+		//return true;
+	}
 }
 //Return from the subroutine, branches unconditionally to an address in a register
 void parseRET(string& line, int lineNum) {
@@ -106,15 +110,16 @@ void parseRET(string& line, int lineNum) {
 	istringstream inputString(line);
 	inputString >> mnemonic >> op1 >> op2 >> op3;
 	if (mnemonic == "RET") {
-		return true;
-	}
-	cout << "-------------------------------------------------------------------------\n";
-	cout << "Instruction: " << lineNum << "\n";
-	cout << "-------------------------------------------------------------------------\n";
-	cout << "Instruction:" << mnemonic << "\n";
-	
+		//return true;
+	//}
+		cout << "-------------------------------------------------------------------------\n";
+		cout << "Instruction: " << lineNum << "\n";
+		cout << "-------------------------------------------------------------------------\n";
+		cout << "Instruction:" << mnemonic << "\n";
 
-	return true;
+
+		//return true;
+	}
 }
 
 //Multiply
@@ -123,17 +128,18 @@ void parseMUL(string& line, int lineNum) {
 	istringstream inputString(line);
 	inputString >> mnemonic >> op1 >> op2 >> op3;
 	if (mnemonic == "MUL") {
-		return true;
-	}
-	cout << "-------------------------------------------------------------------------\n";
-	cout << "Instruction: " << lineNum << "\n";
-	cout << "-------------------------------------------------------------------------\n";
-	cout << "Instruction:" << mnemonic << "\n";
-	cout << "Operand #1: " << op1 << "\n";
-	cout << "Operand #2: " << op2 << "\n";
-	cout << "Operand #3: " << op3 << "\n";
+		//return true;
+	//}
+		cout << "-------------------------------------------------------------------------\n";
+		cout << "Instruction: " << lineNum << "\n";
+		cout << "-------------------------------------------------------------------------\n";
+		cout << "Instruction:" << mnemonic << "\n";
+		cout << "Operand #1: " << op1 << "\n";
+		cout << "Operand #2: " << op2 << "\n";
+		cout << "Operand #3: " << op3 << "\n";
 
-	return true;
+		//return true;
+	}
 }
 
 //No operation
@@ -142,31 +148,33 @@ void parseNOP(string& line, int lineNum) {
 	istringstream inputString(line);
 	inputString >> mnemonic;
 	if (mnemonic == "NOP") {
-		return true;
-	}
-	cout << "-------------------------------------------------------------------------\n";
-	cout << "Instruction: " << lineNum << "\n";
-	cout << "-------------------------------------------------------------------------\n";
-	cout << "Instruction:" << mnemonic << "\n";
+		//return true;
+	//}
+		cout << "-------------------------------------------------------------------------\n";
+		cout << "Instruction: " << lineNum << "\n";
+		cout << "-------------------------------------------------------------------------\n";
+		cout << "Instruction:" << mnemonic << "\n";
 
-	return true;
+		//return true;
+	}
 }
 void parseBGET(string& line, int lineNum) {
 	string mnemonic, op1, op2, op3;
 	istringstream inputString(line);
 	inputString >> mnemonic >> op1 >> op2 >> op3;
 	if (mnemonic == "B.GET" || op1[0] == 'X' || op2[0] == 'X' || op3[0] == 'X') {
-		return true;
-	}
-	cout << "-------------------------------------------------------------------------\n";
-	cout << "Instruction: " << lineNum << "\n";
-	cout << "-------------------------------------------------------------------------\n";
-	cout << "Instruction:" << mnemonic << "\n";
-	cout << "Operand #1: " << op1 << "\n";
-	cout << "Operand #2: " << op2 << "\n";
-	cout << "Operand #3: " << op3 << "\n";
+		//return true;
+	//}
+		cout << "-------------------------------------------------------------------------\n";
+		cout << "Instruction: " << lineNum << "\n";
+		cout << "-------------------------------------------------------------------------\n";
+		cout << "Instruction:" << mnemonic << "\n";
+		cout << "Operand #1: " << op1 << "\n";
+		cout << "Operand #2: " << op2 << "\n";
+		cout << "Operand #3: " << op3 << "\n";
 
-	return true;
+		//return true;
+	}
 }
 
 //CMP compare(extended register), setting the condition flags and discarding the results
@@ -175,16 +183,17 @@ void parseCMP(string& line, int lineNum) {
 	istringstream inputString(line);
 	inputString >> mnemonic >> op1 >> op2;
 	if (mnemonic == "CMP") {
-		return true;
-	}
-	cout << "-------------------------------------------------------------------------\n";
-	cout << "Instruction: " << lineNum << "\n";
-	cout << "-------------------------------------------------------------------------\n";
-	cout << "Instruction:" << mnemonic << "\n";
-	cout << "Operand #1: " << op1 << "\n";
-	cout << "Operand #2: " << op2 << "\n";
+		//return true;
+	//}
+		cout << "-------------------------------------------------------------------------\n";
+		cout << "Instruction: " << lineNum << "\n";
+		cout << "-------------------------------------------------------------------------\n";
+		cout << "Instruction:" << mnemonic << "\n";
+		cout << "Operand #1: " << op1 << "\n";
+		cout << "Operand #2: " << op2 << "\n";
 
-	return true;
+		//return true;
+	}
 }
 //B is branching to another location
 void parseB(string& line, int lineNum) {
@@ -193,15 +202,16 @@ void parseB(string& line, int lineNum) {
 	inputString >> mnemonic >> BTarget;
 	if (mnemonic == "b") {
 		if (inputString >> BTarget) {
-			return true;
-		}
-		cout << "-------------------------------------------------------------------------\n";
-		cout << "Instruction: " << lineNum << "\n";
-		cout << "-------------------------------------------------------------------------\n";
-		cout << "Instruction:" << mnemonic << "\n";
-		cout << "Branch Target:" << BTarget << "\n";
+			//return true;
+		//}
+			cout << "-------------------------------------------------------------------------\n";
+			cout << "Instruction: " << lineNum << "\n";
+			cout << "-------------------------------------------------------------------------\n";
+			cout << "Instruction:" << mnemonic << "\n";
+			cout << "Branch Target:" << BTarget << "\n";
 
-		return true;
+			//return true;
+		}
 	}
 }
 int main() {
