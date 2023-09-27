@@ -9,8 +9,11 @@ using namespace std;
 void parseADD(string& line, int lineNum) {
 	string mnemonic, op1, op2, op3;
 	istringstream inputString(line);
-	inputString >> mnemonic >> op1 >> op2 >> op3;
-	if (mnemonic == "ADD") {
+	inputString >> mnemonic; 
+	getline(inputString, op1);
+	getline(inputString, op2);
+	getline(inputString, op3);
+	if (mnemonic == "add") {
 		//return true;
 	//}
 	cout << "-------------------------------------------------------------------------\n";
