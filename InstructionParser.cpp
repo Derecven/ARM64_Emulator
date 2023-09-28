@@ -15,7 +15,6 @@ https://en.cppreference.com/w/cpp/types/size_t
 SAMPLE 1:
 Example input: 	ADD X1, X2, X3
 Example output:
-
 ------------------------------------------------------------------
 Instruction #<LINE NUMBER>:
 ------------------------------------------------------------------
@@ -69,6 +68,9 @@ int main() {
     //Variable to control whether to write output to a file or console.
     bool writeToFile = true;  
 
+    // Initialize the Program Counter (PC) address
+    unsigned long long pcAddress = 0x0;
+
     //Loop through each line of the input file.
     while (getline(inputFile, line)) { 
         lineNum++;
@@ -91,12 +93,18 @@ int main() {
             }
         }
 
+        // Update PC address for this instruction (Assumes all instructions are 4 bytes)
+        pcAddress += 4; 
+
         //****OUTPUT****
         if(!writeToFile){ //If we do not want to write to the file, output to the console terminal
             cout << "------------------------------------------------------------------" << endl;
             cout << "Instruction #" << lineNum << ":" << endl;
             cout << "------------------------------------------------------------------" << endl;
-            
+
+            //***DEBUG TEST*** Output PC address 
+            //cout << "PC Address: 0x" << hex << pcAddress << endl; // Output PC address in hexadecimal
+
             cout << "Instruction: " << operands[0] << endl;
             for (size_t i = 1; i < operands.size(); ++i) {
                 cout << "Operand #" << i + 1 << ": " << operands[i] << endl;
@@ -106,6 +114,10 @@ int main() {
             outputFile << "------------------------------------------------------------------" << endl;
             outputFile << "Instruction #" << lineNum << ":" << endl;
             outputFile << "------------------------------------------------------------------" << endl;
+            
+            //***DEBUG TEST*** Output PC address 
+            outputFile << "PC Address: 0x" << hex << pcAddress << endl; // Write PC address in hexadecimal to the file
+            
             outputFile << "Instruction: " << operands[0] << endl;
         }
         for (size_t i = 1; i < operands.size(); ++i) {
