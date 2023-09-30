@@ -22,8 +22,8 @@ void printRegisters() {
 	cout << "----------------------------------------------------\n";
 	for (int x = 0; x < numberOfRegisters; x += 3) {
 		cout << "X" << setw(2) << x << ": 0x" << hex << setfill('0') << setw(16) << x_registers[x] << " ";
-		cout << "X" << setw(2) << x + 10 << ": 0x" << hex << setfill('0') << setw(16) << x_registers[x + 10] << "\n ";
-		cout << "X" << setw(2) << x + 20 << ": 0x" << hex << setfill('0') << setw(16) << x_registers[x + 20] << "\n";
+		cout << "X" << setw(2) << x + 10 << ": 0x" << hex << setfill('0') << setw(16) << x_registers[x + 3] << "\n ";
+		cout << "X" << setw(2) << x + 20 << ": 0x" << hex << setfill('0') << setw(16) << x_registers[x + 6] << "\n";
 		cout << "SP: 0x" << hex << sp_register << " ";
 		cout << "PC: 0x" << hex << pc_register << " ";
 		cout << "X30: 0x" << hex << x30_register << "\n";
