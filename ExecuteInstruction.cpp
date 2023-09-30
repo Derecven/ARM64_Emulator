@@ -41,68 +41,84 @@ int main() {
             case 'A':
                 if (instruction == "ADD") {
                     // Execute ADD instruction
+                    executeAdd(operands);
                 } else if (instruction == "AND") {
                     // Execute AND instruction
+                    executeAND(operands);
                 }
                 break;
 
             case 'B':
                 if (instruction == "B") {
                     // Execute B instruction
+                    executeB(operands);
                 } else if (instruction == "B.GT") {
                     // Execute B.GT instruction
+                    executeBGT(operands);
                 } else if (instruction == "B.LE") {
                     // Execute B.LE instruction
+                    executeBLE(operands);
                 }
                 break;
 
             case 'C':
                 if (instruction == "CMP") {
                     // Execute CMP instruction
+                    executeCMP(operands);
                 }
                 break;
 
             case 'E':
                 if (instruction == "EOR") {
                     // Execute EOR instruction
+                    executeEOR(operands);
                 }
                 break;
 
             case 'L':
                 if (instruction == "LDR") {
                     // Execute LDR instruction
+                    executeLDR(operands);
                 } else if (instruction == "LDRB") {
                     // Execute LDRB instruction
+                    executeLDRB(operands);
                 }
                 break;
 
             case 'M':
                 if (instruction == "MOV") {
                     // Execute MOV instruction
+                    executeMOV(operands);
                 } else if (instruction == "MUL") {
                     // Execute MUL instruction
+                    executeMUL(operands);
                 }
                 break;
 
             case 'N':
                 if (instruction == "NOP") {
                     // Execute NOP instruction
+                    executeNOP(operands);
                 }
                 break;
 
             case 'R':
                 if (instruction == "RET") {
                     // Execute RET instruction to end emulation
+                    executeRET(operands);
                 }
                 break;
 
             case 'S':
                 if (instruction == "SUB") {
                     // Execute SUB instruction
+                    executeSUB(operands);
                 } else if (instruction == "STR") {
                     // Execute STR instruction
+                    executeSTR(operands);
                 } else if (instruction == "STRB") {
                     // Execute STRB instruction
+                    executeSTRB(operands);
                 }
                 break;
 
