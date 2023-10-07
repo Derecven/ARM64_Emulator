@@ -10,7 +10,7 @@ const int numberOfRegisters = 31; // general-purpose registers and include XZR
 
 // General-purpose registers (X0-X30)
 uint64_t x_registers[numberOfRegisters + 1] = { 0 }; // Array of type uint64, size of the number of registers initialized to 0.
-uint32_t x_registers[numberOfRegisters + 1] = { 0 }; // Array of type uint32, size of the number of registers initialized to 0.
+uint32_t w_registers[numberOfRegisters + 1] = { 0 }; // Array of type uint32, size of the number of registers initialized to 0.
 
 // Special-purpose registers
 uint64_t xzr_register = 0x0000000000000000; // zero register
