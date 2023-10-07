@@ -19,6 +19,17 @@ uint64_t x30_register = 0x0000000000000000;  // link register (x30)
 int processorState_N_bit = 0;
 int processorState_Z_bit = 0;
 
+//Function to read 32 bit value from 64 bit register
+uint32_t read32bit(uint64_t regValue) {
+    //type casting to convert bit masking op into unsigned 32 bit int. 
+    return static_cast<uint32_t>(regValue & 0xFFFFFFFF);//bit masking '0xffffffff' using AND operation
+}
+
+//Function to write 32 bit value from 64 bit register
+uint32_t write32bit(uint64_t register) {
+    register = (register & 0xFFFFFFFF000000000);
+}
+
 void printRegisters(ostream& output) { //Pass the output stream
     output << "-----------------------------------------------------------------------\n";
     output << "Registers:\n";
