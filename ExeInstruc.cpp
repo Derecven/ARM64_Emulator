@@ -48,7 +48,7 @@ void executeBLE(string destination, string op1, string op2) {
     //checks conditon which is if it is greater than
     if (operand1 <= operand2) {
         cout << "B.GET: Branch to: " << destination << "\n";
-        pc_register = target_address;
+        pc_register = destination;
     }
     else {
         cout << "B.GET: Cannot branch condition has not been met.\n";
