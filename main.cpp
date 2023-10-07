@@ -1,272 +1,47 @@
-#include<iostream>
-#include<fstream>
-#include<sstream>
-#include<string>
-#include<vector>
-
-using namespace std;
-//ADD Instruc add 2 numbers
-void parseADD(string& line, int lineNum) {
-	string mnemonic, op1, op2, op3;
-	istringstream inputString(line);
-	inputString >> mnemonic; 
-	getline(inputString, op1);
-	getline(inputString, op2);
-	getline(inputString, op3);
-	if (mnemonic == "add") {
-		//return true;
-	//}
-	cout << "-------------------------------------------------------------------------\n";
-	cout << "Instruction: " << lineNum << "\n";
-	cout << "-------------------------------------------------------------------------\n";
-	cout << "Instruction:" << mnemonic << "\n";
-	cout << "Operand #1: " << op1 << "\n";
-	cout << "Operand #2: " << op2 << "\n";
-	cout << "Operand #3: " << op3 << "\n";
-
-	//	return true;
-}
-}
-//LDR instruction loads register with a value from memory.
-void parseLDR(string& line, int lineNum) {
-	string mnemonic, destination, value;
-	istringstream inputString(line);
-	if (inputString >> mnemonic) {
-		if (mnemonic == "ldr") {
-			if (inputString >> destination >> value) {
-			}
-			cout << "-------------------------------------------------------------------------\n";
-			cout << "Instruction: " << lineNum << "\n";
-			cout << "-------------------------------------------------------------------------\n";
-			cout << "Instruction:" << mnemonic << "\n";
-			cout << "Operand #1: " << destination << "\n";
-			cout << "Operand #2: " << value << "\n";
+#include"StackMemory.h"
+#include"ARM64Registers.h"
+#include"InstructionParser.h"
+#include"ExeInstruc.h"
+#include"ExecuteInstruction.h"
 
 
-			//return true;
-		}
+//TESTING CODE (StackMemory): 
+int testStackMemory() {
+    // Example vector (you can replace this with your own data)
+    vector<unsigned char> data = {
+        0x41, 0x42, 0x43, 0x44, 0x45, 0x46, 0x47, 0x48,
+        0x49, 0x4A, 0x4B, 0x4C, 0x4D, 0x4E, 0x4F, 0x50,
+        0x51, 0x52, 0x53, 0x54, 0x55, 0x56, 0x57, 0x58,
+        0x59, 0x5A
+    };
 
-	}
+    while (data.size() < 256) {
+        //Add more data to the example until it is 256 bytes if data provided is smaller
+        data.insert(data.end(), data.begin(), data.end());
+    }
+
+    data.resize(256); // Ensures that the data is no bigger than 256 bytes
+    // Call the hexDump function to display the hex dump of the vector data. Return success code
+    hexDump(data);
+    return 0;
 }
 
-//SUB instruc subtracts 2 numbers
-void parseSUB(string& line, int lineNum) {
-	string mnemonic, op1, op2, op3;
-	istringstream inputString(line);
-	inputString >> mnemonic >> op1 >> op2 >> op3;
-	if (mnemonic == "SUB") {
-		//return true;
-	//}
-		cout << "-------------------------------------------------------------------------\n";
-		cout << "Instruction: " << lineNum << "\n";
-		cout << "-------------------------------------------------------------------------\n";
-		cout << "Instruction:" << mnemonic << "\n";
-		cout << "Operand #1: " << op1 << "\n";
-		cout << "Operand #2: " << op2 << "\n";
-		cout << "Operand #3: " << op3 << "\n";
 
-		//return true;
-	}
-}
-
-//MOV instruction copies the value of op2 into Rd
-void parseMOV(string& line, int lineNum) {
-	string mnemonic, op1, op2, op3;
-	istringstream inputString(line);
-	inputString >> mnemonic >> op1 >> op2;
-	if (mnemonic == "MOV") {
-		//return true;
-	//}
-		cout << "-------------------------------------------------------------------------\n";
-		cout << "Instruction: " << lineNum << "\n";
-		cout << "-------------------------------------------------------------------------\n";
-		cout << "Instruction:" << mnemonic << "\n";
-		cout << "Operand #1: " << op1 << "\n";
-		cout << "Operand #2: " << op2 << "\n";
-
-
-		//return true;
-	}
-}
-//STR stores a register value into memory
-void parseSTR(string& line, int lineNum) {
-	string mnemonic, op1, op2;
-	istringstream inputString(line);
-	inputString >> mnemonic >> op1 >> op2;
-	if (mnemonic == "STR") {
-		//return true;
-	//}
-		cout << "-------------------------------------------------------------------------\n";
-		cout << "Instruction: " << lineNum << "\n";
-		cout << "-------------------------------------------------------------------------\n";
-		cout << "Instruction:" << mnemonic << "\n";
-		cout << "Operand #1: " << op1 << "\n";
-		cout << "Operand #2: " << op2 << "\n";
-
-
-		//return true;
-	}
-}
-//Return from the subroutine, branches unconditionally to an address in a register
-void parseRET(string& line, int lineNum) {
-	string mnemonic, op1, op2, op3;
-	istringstream inputString(line);
-	inputString >> mnemonic >> op1 >> op2 >> op3;
-	if (mnemonic == "RET") {
-		//return true;
-	//}
-		cout << "-------------------------------------------------------------------------\n";
-		cout << "Instruction: " << lineNum << "\n";
-		cout << "-------------------------------------------------------------------------\n";
-		cout << "Instruction:" << mnemonic << "\n";
-
-
-		//return true;
-	}
-}
-
-//Multiply
-void parseMUL(string& line, int lineNum) {
-	string mnemonic, op1, op2, op3;
-	istringstream inputString(line);
-	inputString >> mnemonic >> op1 >> op2 >> op3;
-	if (mnemonic == "MUL") {
-		//return true;
-	//}
-		cout << "-------------------------------------------------------------------------\n";
-		cout << "Instruction: " << lineNum << "\n";
-		cout << "-------------------------------------------------------------------------\n";
-		cout << "Instruction:" << mnemonic << "\n";
-		cout << "Operand #1: " << op1 << "\n";
-		cout << "Operand #2: " << op2 << "\n";
-		cout << "Operand #3: " << op3 << "\n";
-
-		//return true;
-	}
-}
-
-//No operation
-void parseNOP(string& line, int lineNum) {
-	string mnemonic;
-	istringstream inputString(line);
-	inputString >> mnemonic;
-	if (mnemonic == "NOP") {
-		//return true;
-	//}
-		cout << "-------------------------------------------------------------------------\n";
-		cout << "Instruction: " << lineNum << "\n";
-		cout << "-------------------------------------------------------------------------\n";
-		cout << "Instruction:" << mnemonic << "\n";
-
-		//return true;
-	}
-}
-void parseBGET(string& line, int lineNum) {
-	string mnemonic, op1, op2, op3;
-	istringstream inputString(line);
-	inputString >> mnemonic >> op1 >> op2 >> op3;
-	if (mnemonic == "B.GET" || op1[0] == 'X' || op2[0] == 'X' || op3[0] == 'X') {
-		//return true;
-	//}
-		cout << "-------------------------------------------------------------------------\n";
-		cout << "Instruction: " << lineNum << "\n";
-		cout << "-------------------------------------------------------------------------\n";
-		cout << "Instruction:" << mnemonic << "\n";
-		cout << "Operand #1: " << op1 << "\n";
-		cout << "Operand #2: " << op2 << "\n";
-		cout << "Operand #3: " << op3 << "\n";
-
-		//return true;
-	}
-}
-
-//CMP compare(extended register), setting the condition flags and discarding the results
-void parseCMP(string& line, int lineNum) {
-	string mnemonic, op1, op2;
-	istringstream inputString(line);
-	inputString >> mnemonic >> op1 >> op2;
-	if (mnemonic == "CMP") {
-		//return true;
-	//}
-		cout << "-------------------------------------------------------------------------\n";
-		cout << "Instruction: " << lineNum << "\n";
-		cout << "-------------------------------------------------------------------------\n";
-		cout << "Instruction:" << mnemonic << "\n";
-		cout << "Operand #1: " << op1 << "\n";
-		cout << "Operand #2: " << op2 << "\n";
-
-		//return true;
-	}
-}
-//B is branching to another location
-void parseB(string& line, int lineNum) {
-	string mnemonic,BTarget;
-	istringstream inputString(line);
-	inputString >> mnemonic >> BTarget;
-	if (mnemonic == "b") {
-		if (inputString >> BTarget) {
-			//return true;
-		//}
-			cout << "-------------------------------------------------------------------------\n";
-			cout << "Instruction: " << lineNum << "\n";
-			cout << "-------------------------------------------------------------------------\n";
-			cout << "Instruction:" << mnemonic << "\n";
-			cout << "Branch Target:" << BTarget << "\n";
-
-			//return true;
-		}
-	}
-}
 int main() {
-	ofstream OutputFile("test1Output.txt");//Create and open outputfile for test 1.
-	ifstream InputFile; InputFile.open("test1.txt"); //Open inputfile.
 
+        //Set the input and output text files
+    string inputFilePath = "ARM-instructions.txt";//This needs to change to input test cases
+    string outputFilePath = "Arm_Instr_Parsed.txt";
 
-	//Check if input or output file fail to open, if so then print error statement.
-	if (!InputFile.is_open() || !OutputFile.is_open()) {
-		cout << "Failed to open the input or output file";
-	}
-	string line;
-	while (getline(InputFile, line)) {
-		istringstream inputString(line);
-		string mnemonic;
-		inputString >> mnemonic;
+    vector<vector<string>> vectorOfVectors; //Vector to store permanent vectors to call for instruciton execution
 
-		if (mnemonic == "add") {
-			parseADD(line);
-		}
-		else if (mnemonic == "sub") {
-			parseSUB(line);
-		}
-		else if (mnemonic == "ldr") {
-			parseLDR(line);
-		}
-		else if (mnemonic == "mov") {
-			parseMOV(line);
-		}
-		else if (mnemonic == "str") {
-			parseSTR(line);
-		}
-		else if (mnemonic == "ret") {
-			parseRET(line);
-		}
-		else if (mnemonic == "mul") {
-			parseMUL(line);
-		}
-		else if (mnemonic == "nop") {
-			parseNOP(line);
-		}
-		else if (mnemonic == "b.get") {
-			parseBGET(line);
-		}
-		else if (mnemonic == "cmp") {
-			parseCMP(line);
-		}
-		else if (mnemonic == "b") {
-			parseB(line);
-		}
-	}
-		OutputFile.close();
-		InputFile.close();
-		return 0;
+    //True or False bool determines whether output is printed to file 
+    ParseInstructions(inputFilePath, outputFilePath, true, vectorOfVectors);
+    
+    writeToFile(filename);//function call for registerrs
+
+    implementInstruction();
+
+        printRegisters();
 }
+
