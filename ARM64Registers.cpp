@@ -29,7 +29,7 @@ uint64_t read32bit(uint64_t regValue) {
 //Function to write 32 bit value from 64 bit register
 uint64_t write32bit(uint64_t regValue) {
     regValue = (regValue & 0x00000000FFFFFFFF); //Sets the upper 32 bits to zero and keeps lower 32 unchanged
-    return static_cast<uint32_t>(regValue); returns the lower 32 bits as type uint32
+    return regValue; //returns the lower 32 bits as type uint32
 }
 
 void printRegisters(ostream& output) { //Pass the output stream
