@@ -20,14 +20,15 @@ int processorState_N_bit = 0;
 int processorState_Z_bit = 0;
 
 //Function to read 32 bit value from 64 bit register
-uint32_t read32bit(uint64_t regValue) {
+uint64_t read32bit(uint64_t regValue) {
     //type casting to convert bit masking op into unsigned 32 bit int. 
-    return static_cast<uint32_t>(regValue & 0xFFFFFFFF);//bit masking '0xffffffff' using AND operation
+    return static_cast<uint32_t>(regValue & 0x000000000FFFFFFFF);//bit masking '0xffffffff' using AND operation 
 }
 
 //Function to write 32 bit value from 64 bit register
-uint32_t write32bit(uint64_t register) {
-    register = (register & 0xFFFFFFFF000000000);
+uint64_t write32bit(uint64_t regValue) {
+    regValue = (regValue & 0x00000000FFFFFFFF); //Sets the upper 32 bits to zero and keeps lower 32 unchanged
+    return regValue;
 }
 
 void printRegisters(ostream& output) { //Pass the output stream
