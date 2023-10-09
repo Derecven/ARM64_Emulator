@@ -30,19 +30,22 @@ int testStackMemory() {
 
 int main() {
 
-        //Set the input and output text files
+    //Set the input and output text files
     string inputFilePath = "ARM-instructions.txt";//This needs to change to input test cases
     string outputFilePath = "Arm_Instr_Parsed.txt";
 
     vector<vector<string>> vectorOfVectors; //Vector to store permanent vectors to call for instruciton execution
 
+    // NEED TO MAKE A DATA SET TO PERMANENTLY HOLD ALL CHANGES TO DATA (REGISTERS/STACK)
+
+    //Parse through the input file and sorts instruction/operands into vectors
     //True or False bool determines whether output is printed to file 
     ParseInstructions(inputFilePath, outputFilePath, true, vectorOfVectors);
+
+    //Loops through vectors and exetutes instructions
+    ExecuteInstructions(vectorOfVectors); 
     
-    writeRegistersToFile(filename);//function call for registerrs
-
-    implementInstruction();
-
-        printRegisters();
+    writeRegistersToFile(filename);//function call for registerrs printing
+    printStackMem(); //ADD DATA FINALIZED DATA SET (needs to be a vector)
 }
 
