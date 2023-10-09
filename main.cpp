@@ -45,7 +45,7 @@ int main() {
     //Loops through vectors and exetutes instructions
     ExecuteInstructions(vectorOfVectors); 
     
-    writeRegistersToFile(filename);//function call for registerrs printing
-    printStackMem(); //ADD DATA FINALIZED DATA SET (needs to be a vector)
+    writeRegistersToFile(outputFilePath);//function call for registerrs printing
+    printStackMem(outputFilePath); //ADD DATA FINALIZED DATA SET (needs to be a vector)
 }
 
