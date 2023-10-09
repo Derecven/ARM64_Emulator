@@ -44,7 +44,7 @@ Stack:
 using namespace std;
 
 // Function to perform a hex dump of a vector of unsigned characters
-void hexDump(const vector<unsigned char>& data) {
+void printStackMem(const vector<unsigned char>& data) {
     const size_t size = data.size();
     const size_t bytesPerLine = 16; // Number of bytes to print per line
 
@@ -86,6 +86,10 @@ void hexDump(const vector<unsigned char>& data) {
     }
 }
 
+
+//TESTING CODE: (Comment out when running in program)
+//****************************************************
+/*
 int main() {
     // Example vector (you can replace this with your own data)
     vector<unsigned char> data = {
@@ -95,18 +99,16 @@ int main() {
         0x59, 0x5A
     };
 
-
-//TESTING CODE: (Comment out when running in program)
-//****************************************************
     while (data.size() < 256) {
         //Add more data to the example until it is 256 bytes if data provided is smaller
         data.insert(data.end(), data.begin(), data.end());
     }
-//****************************************************
+
 
     data.resize(256); // Ensures that the data is no bigger than 256 bytes
     // Call the hexDump function to display the hex dump of the vector data. Return success code
     hexDump(data);
     return 0;
 }
-
+*/
+//****************************************************

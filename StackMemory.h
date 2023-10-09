@@ -6,6 +6,6 @@
 #include <vector>
 
 // Function to perform a hex dump of a vector of unsigned characters
-void hexDump(const std::vector<unsigned char>& data);
+void printStackMem(const std::vector<unsigned char>& data);
 
 #endif

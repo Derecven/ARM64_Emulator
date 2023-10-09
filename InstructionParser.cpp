@@ -53,7 +53,7 @@ void RemoveComments(string &line) {
     }
 }
 
-void ParseInstructions(const string &inputFilePath, const string &outputFilePath, bool writeToFile, vector<vector<string>> &vectorOfVectors) {
+vector<vector<string>> ParseInstructions(const string &inputFilePath, const string &outputFilePath, bool writeToFile, vector<vector<string>> &vectorOfVectors) {
     ifstream inputFile(inputFilePath); // Open the input file
     if (!inputFile.is_open()) {
         // Error statement for if the file did not open
@@ -126,14 +126,17 @@ void ParseInstructions(const string &inputFilePath, const string &outputFilePath
     // Close both input and output files
     inputFile.close();
     outputFile.close();
+    // Returns all the instructions parsed
+    return vectorOfVectors; 
 }
 
 
 //USED FOR TESTING PURPOSES. COMMENT OUT WHEN CALLING FROM MAIN FILE
+/*
 int main() {
     //Set the input and output text files
-    string inputFilePath = "ARM-instructions.txt";
-    string outputFilePath = "Arm_Instr_Parsed.txt";
+    string inputFilePath = "ARM-test-INPUT";
+    string outputFilePath = "Arm-Parse-OUTPUT.txt";
 
     vector<vector<string>> vectorOfVectors; //Vector to store permanent vectors to call for instruciton execution
 
@@ -141,3 +144,4 @@ int main() {
     ParseInstructions(inputFilePath, outputFilePath, true, vectorOfVectors);
     return 0;
 }
+*/

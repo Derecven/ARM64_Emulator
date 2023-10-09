@@ -10,7 +10,6 @@ const int numberOfRegisters = 31; // general-purpose registers and include XZR
 
 // General-purpose registers (X0-X30)
 uint64_t x_registers[numberOfRegisters + 1] = { 0 }; // Array of type uint64, size of the number of registers initialized to 0.
-uint32_t w_registers[numberOfRegisters + 1] = { 0 }; // Array of type uint32, size of the number of registers initialized to 0.
 
 // Special-purpose registers
 uint64_t xzr_register = 0x0000000000000000; // zero register
@@ -19,18 +18,6 @@ uint64_t pc_register = 0x0000000000000000;   // program counter
 uint64_t x30_register = 0x0000000000000000;  // link register (x30)
 int processorState_N_bit = 0;
 int processorState_Z_bit = 0;
-
-//Function to read 32 bit value from 64 bit register
-uint64_t read32bit(uint64_t regValue) {
-    //type casting to convert bit masking op into unsigned 32 bit int. 
-    return static_cast<uint32_t>(regValue & 0x000000000FFFFFFFF);//bit masking '0xffffffff' using AND operation 
-}
-
-//Function to write 32 bit value from 64 bit register
-uint64_t write32bit(uint64_t regValue) {
-    regValue = (regValue & 0x00000000FFFFFFFF); //Sets the upper 32 bits to zero and keeps lower 32 unchanged
-    return regValue; //returns the lower 32 bits as type uint32
-}
 
 void printRegisters(ostream& output) { //Pass the output stream
     output << "-----------------------------------------------------------------------\n";
@@ -48,11 +35,6 @@ void printRegisters(ostream& output) { //Pass the output stream
         output << "X" << dec << regNum1 << ": 0x" << hex << setfill('0') << setw(16) << x_registers[regNum1] << "\t";
         output << "X" << dec << regNum2 << ": 0x" << hex << setfill('0') << setw(16) << x_registers[regNum2] << "\t";
         output << "X" << dec << regNum3 << ": 0x" << hex << setfill('0') << setw(16) << x_registers[regNum3] << "\n";
-
-	//Prints 32 bit registers
-	output << "W" << dec << regNum1 << ": 0x" << hex << setfill('0') << setw(8) << x_registers[regNum1] << "\t";
-	output << "W" << dec << regNum2 << ": 0x" << hex << setfill('0') << setw(8) << x_registers[regNum2] << "\t";
-	output << "W" << dec << regNum3 << ": 0x" << hex << setfill('0') << setw(8) << x_registers[regNum3] << "\n";
     }
 
     //Print other registers at the end
@@ -63,7 +45,7 @@ void printRegisters(ostream& output) { //Pass the output stream
     output << "Processor State Z bit: " << processorState_Z_bit << "\n";
 }
 
-void writeToFile(string& filename) {
+void writeRegistersToFile(string& filename) {
     ofstream outputFile(filename);
     //Check if it opens correctly
     if (!outputFile.is_open()) {
@@ -75,9 +57,11 @@ void writeToFile(string& filename) {
     outputFile.close();
 }
 
+/*  TEST FOR ARM64 REGISTERS OUTPUT FORMAT
 int main() {
 	//Defines output file name and writes to the file
     string filename = "arm64Registers_output.txt";
     writeToFile(filename);
     return 0;
 }
+*/

@@ -8,6 +8,7 @@
 void RemoveComments(std::string &line);
 
 // Function to parse instructions from an input file and store them in a vector of vectors
-void ParseInstructions(const std::string &inputFilePath, const std::string &outputFilePath, bool writeToFile, std::vector<std::vector<std::string>> &vectorOfVectors);
+std::vector<std::vector<std::string>> ParseInstructions(const std::string &inputFilePath, const std::string &outputFilePath, bool writeToFile, std::vector<std::vector<std::string>> &vectorOfVectors);
 
 #endif
+

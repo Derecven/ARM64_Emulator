@@ -1,8 +1,9 @@
 #include"StackMemory.h"
 #include"ARM64Registers.h"
 #include"InstructionParser.h"
-#include"ExeInstruc.h"
+#include"ARM64Instructions.h"
 #include"ExecuteInstruction.h"
+
 
 
 //TESTING CODE (StackMemory): 
@@ -22,7 +23,7 @@ int testStackMemory() {
 
     data.resize(256); // Ensures that the data is no bigger than 256 bytes
     // Call the hexDump function to display the hex dump of the vector data. Return success code
-    hexDump(data);
+    stackMemDump(data);
     return 0;
 }
 
@@ -38,7 +39,7 @@ int main() {
     //True or False bool determines whether output is printed to file 
     ParseInstructions(inputFilePath, outputFilePath, true, vectorOfVectors);
     
-    writeToFile(filename);//function call for registerrs
+    writeRegistersToFile(filename);//function call for registerrs
 
     implementInstruction();
 
