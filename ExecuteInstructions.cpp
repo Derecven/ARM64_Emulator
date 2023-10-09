@@ -71,7 +71,7 @@ void ExecuteInstructions(vector<vector<string>> &vectorOfVectors) {
                 } else if (instruction == "LDRB") {
                     // Execute LDRB instruction
                     //Instr 1 is operand, 2 is baseReg, 3 is regOffset
-                    executeLDRB(instructionVec[1], instructionVec[2], instructionVec[3]);
+                    executeLDRB(instructionVec[1], instructionVec[2], stoi(instructionVec[3]));
                 }
                 break;
 
@@ -110,7 +110,7 @@ void ExecuteInstructions(vector<vector<string>> &vectorOfVectors) {
                 } else if (instruction == "STRB") {
                     // Execute STRB instruction
                     //Instr 1 is operand, 2 is baseReg, 3 is regOffset
-                    executeSTRB(instructionVec[1], instructionVec[2], instructionVec[3]);
+                    executeSTRB(instructionVec[1], instructionVec[2], stoi(instructionVec[3]));
                 }
                 break;
 
