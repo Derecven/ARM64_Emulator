@@ -1,0 +1,6 @@
+Task 1. Parsar 
+Task 2. Create ARM64 Registers
+Task 3. Prepare Stack Memory
+Task 4. Update/Store the address in the PC
+Task 5. Execute/Emulate the instruction.
+Task 6. Implement 32 Registers.
