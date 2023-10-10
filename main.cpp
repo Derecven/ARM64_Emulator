@@ -1,8 +1,8 @@
 #include"StackMemory.h"
-#include"ARM64Registers.h"
+#include"Arm64Registers.h"
 #include"InstructionParser.h"
 #include"ARM64Instructions.h"
-#include"ExecuteInstruction.h"
+#include"ExecuteInstructions.h"
 
 
 
