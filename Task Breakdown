@@ -1,6 +1,33 @@
-Task 1. Parsar 
+Task 1. Parser 
+  InstructionParser.cpp 
+    -Patrick wrote the code
+
 Task 2. Create ARM64 Registers
+  ARM64Registers.cpp
+    -Jessica wrote the code
+    -Patrick made output format fixes
+
 Task 3. Prepare Stack Memory
+  StackMemory.cpp
+    -Patrick wrote the code
+
 Task 4. Update/Store the address in the PC
+  ExecuteInstructions.cpp
+    -Jessica wrote the code
+
 Task 5. Execute/Emulate the instruction.
+  ARM64Instructions.cpp 
+    -Jessica wrote the code and made fixes
+  
+  ExecuteInstructions.cpp
+    -Jessica wrote the code and made fixes
+    -Patrick added instruction function calls & parameters
+    
+  main.cpp
+    -Jessica and Patrick wrote code
+    -Patrick created header files using automated tool
+    -Jessica and Patrick attempted to troubleshoot main functionality
+
 Task 6. Implement 32 Registers.
+  ARM64Registers.cpp
+    -Jessica wrote the code 
