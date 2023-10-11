@@ -73,12 +73,3 @@ void writeRegistersToFile(string& filename) {
     printRegisters(outputFile);
     outputFile.close();
 }
-
-/*  TEST FOR ARM64 REGISTERS OUTPUT FORMAT
-int main() {
-	//Defines output file name and writes to the file
-    string filename = "arm64Registers_output.txt";
-    writeToFile(filename);
-    return 0;
-}
-*/
